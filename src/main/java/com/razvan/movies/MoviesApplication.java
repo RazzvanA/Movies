@@ -1,6 +1,7 @@
 package com.razvan.movies;
 
 import com.razvan.movies.repository.MovieRepository;
+import com.razvan.movies.resolver.Mutation;
 import com.razvan.movies.resolver.Query;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -25,5 +26,10 @@ public class MoviesApplication {
 	@Bean
 	public Query query(MovieRepository movieRepository) {
 		return new Query(movieRepository);
+	}
+
+	@Bean
+	public Mutation mutation(MovieRepository movieRepository) {
+		return new Mutation(movieRepository);
 	}
 }
